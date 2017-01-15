@@ -1,0 +1,72 @@
+key: value
+another_ley: Another value goes here.
+a_number_value: 100
+scientific_notation: 1e+12
+boolean: true
+null_value: null
+key with spaces: value
+# keys can be quoted, and it is useful if putting ':' in key
+literal_block: |
+  This entire block of text will be the value of the literal_block key, with line breaks being preserved.
+
+  The literal continues until de-dented, and the leading indentation is stripped.
+
+    Any lines that are more-indented keep the rest of the indentation -
+    these lines will be indented by 4 spaces
+folded_style: >
+  This entier block of text will be the value of 'folded_style', but this time, all newlines will be replaced with a single space. 
+
+  Blank lines, like above, are converted to a newline charcter
+
+    more-indented lines keep their newlines, too-
+    this text appears on two lines
+########################################
+#Collection Type
+#######################################
+a_nested_map:
+  key: value
+  another_key: another value
+  another_nested_map:
+    hello: hello
+0.25: a float key
+#Can also have multi line complex keys,"? " shows we are making complex key
+? |
+  This is a kay
+  that is multiple lines
+: and this is its value
+# Mapping between sequences
+? - Manchester United
+  - Real Madrid
+: [2001-01-01, 2002-02-02]
+
+#Sequences (list/array):
+a_sequence
+  - Item 1
+  - Item 2
+  - 0.5
+  - Item 4
+  - key: value
+    another_key: another_value
+  -
+    - This is a sequence
+    - Inside of another sequence
+#Can also write these types of maps as it is a subset of JSON
+json_map: {"key": "value"}
+json_seq: [3, 2, 1, "takeoff"]
+#
+#Extra YAML featlures
+#Anchors: easily duplicate content across your document. both of the below will
+#have same value"
+anchored_content: $anchor_name This string will appear as the value of two keys.
+other_anchor: $anchor_name
+base: &base
+  name: Everyone has the same name
+foo: &foo
+  <<: *base
+  age: 10
+
+bar: &bar
+  <<*base
+  age:20
+  
+
